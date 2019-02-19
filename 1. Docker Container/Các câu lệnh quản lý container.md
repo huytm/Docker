@@ -43,7 +43,7 @@ cbd33af9b6a2        httpd               "httpd-foreground"   7 minutes ago      
 963c16576e5c        centos              "/bin/bash"          33 minutes ago      Up 33 minutes                              huytm
 ```
 
-### 3. Kiểm tra các tất cả các container 
+### 3. Kiểm tra tất cả các container 
 
 Kiểm tra các tất cả các container
 
@@ -61,7 +61,7 @@ cbd33af9b6a2        httpd               "httpd-foreground"   9 minutes ago      
 963c16576e5c        centos              "/bin/bash"          35 minutes ago      Up 35 minutes                              huytm
 ```
 
-### 3. Kiểm tra thông tin metadata của container
+### 4. Kiểm tra thông tin metadata của container
 
 Kiểm tra metadata của container
 
@@ -79,7 +79,7 @@ hoặc
 docker inspect huytm
 ```
 
-### 4. Start container
+### 5. Start container
 
 Start container
 
@@ -98,7 +98,7 @@ docker start huytm
 ```
 
 
-### 5. Stop container
+### 6. Stop container
 
 Stop container
 
@@ -116,13 +116,13 @@ hoặc
 docker stop huytm
 ```
 
-### 6. Stop tất cả c ác container
+### 7. Stop tất cả c ác container
 
 ```
 docker stop $(docker ps -a -q)
 ```
 
-### 7. Restart container
+### 8. Restart container
 
 Restart container
 
@@ -140,7 +140,7 @@ hoặc
 docker restart huytm
 ```
 
-### 8. Xóa container
+### 9. Xóa container
 
 Xóa container
 
@@ -160,7 +160,7 @@ hoặc
 docker rm huytm
 ```
 
-### 9. Xóa tất cả các container
+### 10. Xóa tất cả các container
 
 ```
 docker stop  $(docker ps -a -q)
