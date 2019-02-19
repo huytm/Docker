@@ -4,7 +4,7 @@
 
 - Dockerfile là một file kịch bản sử dụng để tạo mới một image
 
-## Cấu trúc một Dockerfile
+## 1. Cấu trúc một Dockerfile
 
 ## Các command cơ bản trong Dockerfile
 
@@ -70,3 +70,95 @@ COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
 </pre>
+
+## 2. Các command cơ bản trong Dockerfile
+
+### FROM
+
+```
+FROM centos:centos7
+```
+
+FROM chỉ định rằng image build này sẽ base trên image gốc nào
+
+### LABEL
+
+```
+LABEL "image-type"="huy-test"
+LABEL "image-type1"="huy-test1"
+LABEL "image-type2"="huy-test2"
+```
+
+LABEL: Chỉ định label metadata của image. Để xem được các label này sử dụng câu lệnh `docker inspect <IMAGE ID>`
+
+### MAINTAINER
+
+```
+MAINTAINER huytm
+```
+
+MAINTERNER là author (tác giả) build image đó.
+
+### RUN
+
+```
+RUN yum update -y
+```
+
+RUN thực hiện một câu lệnh Linux. Tùy vào image gốc mà có các câu lệnh tương ứng (ví dụ Ubuntu sẽ là `RUN apt-get update -y`)
+
+### COPY
+
+```
+COPY start.sh /start.sh
+```
+
+COPY Copy một file từ Dockerhost vào image trong quá trình build image
+
+
+### ENV
+
+```
+ENV source /var/www/html/
+COPY index.html ${source}
+```
+
+ENV là biến môi trường sử dụng trong quá trình build image.
+
+ENV chỉ có thể được sử dụng trong các command sau:
+
+- ADD
+- COPY
+- ENV
+- EXPOSE
+- FROM
+- LABEL
+- STOPSIGNAL
+- USER
+- VOLUME
+- WORKDIR
+
+### CMD 
+
+```
+CMD ["./start.sh"]
+```
+
+CMD dùng để truyền một Linux command khi khởi tạo container từ image
+
+### VOLUME
+
+```
+VOLUME ["/etc/http"]
+```
+
+VOLUME Tạo một `volume` nằm trong folder */var/lib/docker/volumes* của docker host và mount với folder chẳng hạn */etc/http* khi khởi chạy container
+
+### EXPOSE
+
+
+```
+EXPOSE 80 443
+```
+
+
