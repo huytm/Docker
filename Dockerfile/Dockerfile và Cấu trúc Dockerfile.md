@@ -161,4 +161,9 @@ VOLUME Tạo một `volume` nằm trong folder */var/lib/docker/volumes* của d
 EXPOSE 80 443
 ```
 
+## 3. Build Image từ Dockerfile
+
+```
+docker built -t image_name <path_to_Dockerfile>
+```
 
